@@ -27,7 +27,8 @@ import VendorOrders from './components/vendor/OrderManagement';
 import PrivateRoute from './components/auth/PrivateRoute';
 import axios from 'axios'
 
-function App() {
+const AppContent = () => {
+  useAuth();  
   return (
     <Provider store={store}>
       <Router>
