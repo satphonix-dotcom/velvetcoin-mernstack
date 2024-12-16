@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -26,10 +26,13 @@ import OrderDetails from './components/orders/OrderDetails';
 import VendorDashboard from './components/vendor/Dashboard';
 import VendorOrders from './components/vendor/OrderManagement';
 import PrivateRoute from './components/auth/PrivateRoute';
-import axios from 'axios'
+import axios from 'axios';
 
-const AppContent = () => {
-  useAuth();  
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
+const App = () => {
+  useAuth();
+
   return (
     <Provider store={store}>
       <Router>
@@ -118,14 +121,5 @@ const AppContent = () => {
     </Provider>
   );
 }
-function App() {
-  axios.defaults.baseURL =process.env.REACT_APP_API_URL
-  return (
-    <Provider store={store}>
-      <Router>
-        <AppContent />
-      </Router>
-    </Provider>
-  );
-}
+
 export default App;
