@@ -17,7 +17,7 @@ export const fetchVendorProducts = createAsyncThunk(
   'products/fetchVendorProducts',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/vendor', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/vendor`, {
         headers: { 'x-auth-token': localStorage.getItem('token') }
       });
       return response.data;
@@ -32,7 +32,7 @@ export const createProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/products',
+        `${process.env.REACT_APP_API_URL}/api/products`,
         productData,
         { headers: { 'x-auth-token': localStorage.getItem('token') } }
       );
