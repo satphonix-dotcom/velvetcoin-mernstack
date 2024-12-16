@@ -25,6 +25,7 @@ import OrderDetails from './components/orders/OrderDetails';
 import VendorDashboard from './components/vendor/Dashboard';
 import VendorOrders from './components/vendor/OrderManagement';
 import PrivateRoute from './components/auth/PrivateRoute';
+import axios from 'axios'
 
 function App() {
   return (
@@ -115,5 +116,14 @@ function App() {
     </Provider>
   );
 }
-
+function App() {
+  axios.defaults.baseURL =process.env.REACT_APP_API_URL
+  return (
+    <Provider store={store}>
+      <Router>
+        <AppContent />
+      </Router>
+    </Provider>
+  );
+}
 export default App;
