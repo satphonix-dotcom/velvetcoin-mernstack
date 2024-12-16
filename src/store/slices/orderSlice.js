@@ -19,7 +19,7 @@ export const fetchVendorOrders = createAsyncThunk(
   'orders/fetchVendorOrders',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(${process.env.REACT_APP_API_URL}/api/orders/vendor', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/vendor', {
         headers: { 'x-auth-token': localStorage.getItem('token') }
       });
       return response.data;
@@ -34,7 +34,7 @@ export const updateOrderStatus = createAsyncThunk(
   async ({ orderId, status, trackingNumber, notes }, { rejectWithValue }) => {
     try {
       const response = await axios.patch(
-        `https://${process.env.REACT_APP_API_URL}/api/orders/${orderId}/status`,
+        `${process.env.REACT_APP_API_URL}/api/orders/${orderId}/status`,
         { status, trackingNumber, notes },
         { headers: { 'x-auth-token': localStorage.getItem('token') } }
       );
