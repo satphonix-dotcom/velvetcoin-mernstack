@@ -11,7 +11,7 @@ const OrderConfirmation = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(${process.env.REACT_APP_API_URL}/api/orders/${orderId}, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/${orderId}`, {
           headers: { 'x-auth-token': localStorage.getItem('token') }
         });
         setOrder(response.data);

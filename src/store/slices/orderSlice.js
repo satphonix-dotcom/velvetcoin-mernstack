@@ -5,7 +5,7 @@ export const fetchUserOrders = createAsyncThunk(
   'orders/fetchUserOrders',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(${process.env.REACT_APP_API_URL}/api/orders/user, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/user`, {
         headers: { 'x-auth-token': localStorage.getItem('token') }
       });
       return response.data;
