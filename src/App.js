@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+// src/App.js
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import { useAuth } from './hooks/useAuth';
 import Layout from './components/layout/Layout';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
@@ -31,8 +31,6 @@ import axios from 'axios';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const App = () => {
-  useAuth();
-
   return (
     <Provider store={store}>
       <Router>
