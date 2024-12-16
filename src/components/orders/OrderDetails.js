@@ -15,7 +15,7 @@ const OrderDetails = () => {
     const fetchOrder = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/orders/${orderId}`,
+          `https://${process.env.REACT_APP_API_URL}/api/orders/${orderId}`,
           { headers: { 'x-auth-token': token } }
         );
         setOrder(response.data);

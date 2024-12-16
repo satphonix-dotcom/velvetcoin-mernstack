@@ -5,7 +5,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/products');
+      const response = await axios.get('https://${process.env.REACT_APP_API_URL}/api/products');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -17,7 +17,7 @@ export const fetchVendorProducts = createAsyncThunk(
   'products/fetchVendorProducts',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/products/vendor', {
+      const response = await axios.get('https://${process.env.REACT_APP_API_URL}/api/products/vendor', {
         headers: { 'x-auth-token': localStorage.getItem('token') }
       });
       return response.data;
@@ -32,7 +32,7 @@ export const createProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/products',
+        'https://${process.env.REACT_APP_API_URL}/api/products',
         productData,
         { headers: { 'x-auth-token': localStorage.getItem('token') } }
       );
@@ -48,7 +48,7 @@ export const updateProduct = createAsyncThunk(
   async ({ id, productData }, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/products/${id}`,
+        `https://${process.env.REACT_APP_API_URL}/api/products/${id}`,
         productData,
         { headers: { 'x-auth-token': localStorage.getItem('token') } }
       );
@@ -63,7 +63,7 @@ export const deleteProduct = createAsyncThunk(
   'products/deleteProduct',
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://${process.env.REACT_APP_API_URL}/api/products/${id}`, {
         headers: { 'x-auth-token': localStorage.getItem('token') }
       });
       return id;

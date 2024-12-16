@@ -22,7 +22,7 @@ const ResetPassword = () => {
     setError('');
 
     try {
-      await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, {
+      await axios.post(`https://${process.env.REACT_APP_API_URL}/api/auth/reset-password/${token}`, {
         password
       });
       setStatus('success');
