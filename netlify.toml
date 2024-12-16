@@ -1,10 +1,10 @@
 [build]
   command = "npm run build"
   publish = "build"
-  functions = "netlify/functions"
+  # Removed the functions directory as it's not used
+  # functions = "netlify/functions"
 
-[context.production]
-  environment = { NODE_VERSION = "18.x" }
+# Removed the [context.production] section that sets NODE_VERSION
 
 [context.production.environment]
   REACT_APP_API_URL = "https://velvetcoin-mernstack-d9c8d5423380.herokuapp.com/"
