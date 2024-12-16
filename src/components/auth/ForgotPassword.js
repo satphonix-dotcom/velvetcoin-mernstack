@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     setError('');
 
     try {
-      await axios.post('https://${process.env.REACT_APP_API_URL}/api/auth/forgot-password', { email });
+      await axios.post(${process.env.REACT_APP_API_URL}/api/auth/forgot-password, { email });
       setStatus('success');
     } catch (error) {
       setError(error.response?.data?.message || 'Something went wrong');

@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://${process.env.REACT_APP_API_URL}/api/auth/login', formData);
+      const response = await axios.post(${process.env.REACT_APP_API_URL}/api/auth/login, formData);
       localStorage.setItem('token', response.data.token);
       dispatch(loginSuccess(response.data));
       navigate('/');

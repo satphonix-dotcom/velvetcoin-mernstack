@@ -27,7 +27,7 @@ const CheckoutPage = () => {
   const handleShippingSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://${process.env.REACT_APP_API_URL}/api/orders', {
+      const response = await fetch(${process.env.REACT_APP_API_URL}/api/orders, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

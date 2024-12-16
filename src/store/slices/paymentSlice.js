@@ -6,7 +6,7 @@ export const processPayment = createAsyncThunk(
   async ({ orderId, paymentDetails }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        `https://${process.env.REACT_APP_API_URL}/api/payments/process`,
+        ${process.env.REACT_APP_API_URL}/api/payments/process,
         { orderId, paymentDetails },
         { headers: { 'x-auth-token': localStorage.getItem('token') } }
       );

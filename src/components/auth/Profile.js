@@ -29,7 +29,7 @@ const Profile = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        'https://${process.env.REACT_APP_API_URL}/api/auth/profile',
+        ${process.env.REACT_APP_API_URL}/api/auth/profile,
         formData,
         {
           headers: { 'x-auth-token': token }

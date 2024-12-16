@@ -32,7 +32,7 @@ const SearchBar = () => {
       }
 
       try {
-        const response = await axios.get(`https://${process.env.REACT_APP_API_URL}/api/products/search/suggestions?q=${query}`);
+        const response = await axios.get(${process.env.REACT_APP_API_URL}/api/products/search/suggestions?q=${query});
         setSuggestions(response.data);
       } catch (error) {
         console.error('Error fetching suggestions:', error);
